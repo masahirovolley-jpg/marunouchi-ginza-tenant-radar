@@ -8,7 +8,6 @@ on:
     paths: ['collector.py', 'publish.py', 'sources.json', 'test_collector.py', '.github/workflows/collect.yml']
 permissions:
   contents: write
-  id-token: write
 concurrency:
   group: tenant-radar-collection
   cancel-in-progress: false
@@ -31,10 +30,6 @@ jobs:
             git commit -m 'Record tenant radar collection'
             git push
           fi
-      - name: Publish to dashboard
-        # Sites edge rejected GitHub-hosted requests (1010). Disabled pending supported transport.
-        if: vars.SITE_INGEST_ENABLED == 'true'
-        run: python3 publish.py
       - name: Report unavailable sources
         run: |
           python3 - <<'PY'
@@ -46,5 +41,5 @@ jobs:
               for s in d['sources']:
                   f.write('- '+s['name']+': '+s['message']+'\n')
           if errors:
-              raise SystemExit('Some sources could not be fetched. Results retained and published; manual review required.')
+              raise SystemExit('Some sources could not be fetched. Results saved for the dashboard; manual review required.')
           PY
