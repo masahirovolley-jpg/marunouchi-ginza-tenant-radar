@@ -1,0 +1,92 @@
+[
+  {
+    "name": "飲食店ドットコム",
+    "url": "https://www.inshokuten.com/bukken/kanto/bukkens/list/local-23ward/station-1641/today/",
+    "area": "銀座",
+    "type": "募集"
+  },
+  {
+    "name": "G-plus",
+    "url": "https://g-plus-ginza.com/feature/tempo_feature/inuki?order=rent_desc",
+    "area": "銀座",
+    "type": "募集"
+  },
+  {
+    "name": "Marunouchi.com",
+    "url": "https://www.marunouchi.com/",
+    "area": "丸の内",
+    "type": "施設公式"
+  },
+  {
+    "name": "三菱地所PM 商業施設",
+    "url": "https://commercial.mjpm.co.jp/",
+    "area": "丸の内ほか",
+    "type": "出店窓口"
+  },
+  {
+    "name": "銀座オフィスマン",
+    "url": "https://ginza.officeman.tokyo/item/index",
+    "area": "銀座",
+    "type": "募集"
+  },
+  {
+    "name": "居抜き店舗.com",
+    "url": "https://www.i-tenpo.com/tokyo/ginza-st/",
+    "area": "銀座",
+    "type": "募集"
+  },
+  {
+    "name": "居抜き市場",
+    "url": "https://inuki-ichiba.jp/rent/chuo-ginza",
+    "area": "銀座",
+    "type": "募集"
+  },
+  {
+    "name": "GINZA SIX ニュース",
+    "url": "https://ginza6.tokyo/news",
+    "area": "銀座",
+    "type": "施設公式"
+  },
+  {
+    "name": "銀座三越 営業変更案内",
+    "url": "https://www.mistore.jp/store/ginza/news/news_detail07.html",
+    "area": "銀座",
+    "type": "施設公式"
+  },
+  {
+    "name": "銀座経済新聞",
+    "url": "https://ginza.keizai.biz/",
+    "area": "銀座",
+    "type": "地域メディア"
+  },
+  {
+    "name": "IL BISONTE 公式ニュース",
+    "url": "https://www.ilbisonte.jp/news/index?path=20260521120000",
+    "area": "丸の内",
+    "type": "店舗公式"
+  },
+  {
+    "name": "IQOS 公式ニュース",
+    "url": "https://jp.iqos.com/news/iqos-ginza-flagship-teaser2026",
+    "area": "銀座",
+    "type": "店舗公式"
+  },
+  {
+    "name": "西銀座公式",
+    "url": "https://www.nishiginza.co.jp/shopguide/new_close/",
+    "area": "銀座・丸の内",
+    "type": "公式発表"
+  },
+  {
+    "name": "ソメスサドル公式",
+    "url": "https://www.somes.co.jp/news/45519/",
+    "area": "銀座・丸の内",
+    "type": "公式発表"
+  },
+  {
+    "name": "企業発表 / PR TIMES",
+    "url": "https://prtimes.jp/",
+    "area": "銀座・丸の内",
+    "type": "公式発表"
+  }
+]
