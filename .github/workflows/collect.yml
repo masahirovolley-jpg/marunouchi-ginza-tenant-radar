@@ -32,7 +32,6 @@ jobs:
             git push
           fi
       - name: Publish to dashboard
-        if: vars.SITE_INGEST_ENABLED == 'true'
         run: python3 publish.py
       - name: Report unavailable sources
         run: |
