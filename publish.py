@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 
 SITE = 'https://marunouchi-ginza-tenant-radar.masahirovolley.chatgpt.site'
 
@@ -15,8 +16,12 @@ def publish():
     data = (Path(__file__).parent/'data/latest.json').read_bytes()
     req = Request(SITE+'/api/collection', data=data, method='POST', headers={
         'Authorization':'Bearer '+token, 'Content-Type':'application/json'})
-    with urlopen(req, timeout=60) as r:
-        result = json.load(r)
+    try:
+        with urlopen(req, timeout=60) as r:
+            result = json.load(r)
+    except HTTPError as e:
+        detail = e.read(1500).decode('utf-8', errors='replace').replace(token, '[redacted]')
+        raise RuntimeError('Dashboard HTTP '+str(e.code)+': '+detail) from None
     if not result.get('ok'):
         raise RuntimeError('Site did not accept the collection')
     print('Dashboard accepted collection: '+str(result.get('at')))
