@@ -32,6 +32,8 @@ jobs:
             git push
           fi
       - name: Publish to dashboard
+        # Sites edge rejected GitHub-hosted requests (1010). Disabled pending supported transport.
+        if: vars.SITE_INGEST_ENABLED == 'true'
         run: python3 publish.py
       - name: Report unavailable sources
         run: |
