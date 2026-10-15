@@ -1,46 +1,13 @@
-name: Tenant radar collection
+name: Tenant radar collection (stopped)
 on:
-  schedule:
-    # UTC 23:00 / 07:00 = Asia/Tokyo 08:00 / 16:00. May be delayed by GitHub.
-    - cron: '0 7,23 * * *'
   workflow_dispatch:
-  push:
-    paths: ['collector.py', 'publish.py', 'sources.json', 'test_collector.py', '.github/workflows/collect.yml']
+
 permissions:
-  contents: write
-concurrency:
-  group: tenant-radar-collection
-  cancel-in-progress: false
+  contents: read
+
 jobs:
-  collect:
+  stopped:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - name: Test extraction
-        run: python3 -m unittest -v
-      - name: Collect public pages
-        run: python3 collector.py
-      - name: Save collection history
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/latest.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Record tenant radar collection'
-            git pull --rebase origin main
-            git push
-          fi
-      - name: Report unavailable sources
-        run: |
-          python3 - <<'PY'
-          import json, os
-          d=json.load(open('data/latest.json'))
-          errors=[s for s in d['sources'] if s['status']=='error']
-          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
-              f.write('## Collection\n'+d['at']+'\n\n')
-              for s in d['sources']:
-                  f.write('- '+s['name']+': '+s['message']+'\n')
-          if errors:
-              raise SystemExit('Some sources could not be fetched. Results saved for the dashboard; manual review required.')
-          PY
+      - name: Collection status
+        run: echo "Cloud collection was stopped on 2026-10-15 JST."
